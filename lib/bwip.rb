@@ -1,0 +1,1 @@
+require 'bwip/rails'
