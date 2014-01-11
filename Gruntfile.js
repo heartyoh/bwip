@@ -124,7 +124,7 @@ module.exports = function (grunt) {
     uglify: {
       build: {
         src: 'build/bwip.js',
-        dest: 'build/bwip.min.js'
+        dest: 'build/bwip-min.js'
       }
     },
     copy: {
