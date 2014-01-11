@@ -21,7 +21,7 @@ As a package for bower provides:
 ## Getting Started
 ### Install the nodejs module with: `npm install bwip`
 
-```javascript
+```js
 var bwip = require('bwip');
 bwip.awesome(); // "awesome"
 ```
@@ -40,7 +40,7 @@ whether the asset pipeline is being used.
 The bwip files will be added to the asset pipeline and available for you to use. If they're not already in `app/assets/javascripts/application.js` by default, add these lines:
 
 ```js
-//= require bwip-canvas-min
+//= require bwip-min
 ```
 
 ## Documentation

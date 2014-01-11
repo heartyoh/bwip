@@ -118,13 +118,25 @@ module.exports = function (grunt) {
         'bwipp/upcecomposite.js' ].map(function(file) {
           return require('path').join('src', 'bwipjs', file);
         }),
-        dest: 'build/bwip-canvas.js'
+        dest: 'build/bwip.js'
       }
     },
     uglify: {
       build: {
-        src: 'build/bwip-canvas.js',
-        dest: 'build/bwip-canvas.min.js'
+        src: 'build/bwip.js',
+        dest: 'build/bwip.min.js'
+      }
+    },
+    copy: {
+      main: {
+        files: [
+          {
+            expand: true,
+            src: ['build/*'],
+            dest: 'vendor/assets/javascripts/',
+            filter: 'isFile'
+          }
+        ]
       }
     },
     jshint: {
@@ -160,6 +172,6 @@ module.exports = function (grunt) {
 
   // Default task.
   // grunt.registerTask('default', ['jshint', 'nodeunit']);
-  grunt.registerTask('default', ['jshint', 'nodeunit', 'concat', 'uglify']);
+  grunt.registerTask('default', ['concat', 'uglify', 'copy']);
 
 };
