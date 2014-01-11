@@ -1,0 +1,15 @@
+{
+  "name": "bwip",
+  "version": "0.6.0",
+  "authors": [
+    "heartyoh <heartyoh@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

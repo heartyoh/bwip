@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
   
   s.add_dependency "railties", ">= 3.0", "< 5.0"
   
-  s.files = `git ls-files`.split("\n")
-  s.executables  = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
+  s.files = Dir["lib/**/*.rb", "vendor/assets/**/*", "MIT-LICENSE", "README.md"]
   s.require_path = 'lib'
 end
