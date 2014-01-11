@@ -1,7 +1,7 @@
 {
   "name": "bwip",
   "version": "0.6.0",
-  "main": "lib/bwip.js",
+  "main": "src/bwip-node.js",
   "description": "The best module ever.",
   "homepage": "https://github.com/heartyoh/bwip",
   "bugs": "https://github.com/heartyoh/bwip/issues",
@@ -18,6 +18,9 @@
       "type": "MIT"
     }
   ],
+  "dependencies": {
+    "pnglib": "~0.0.1"
+  },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.7.0",
     "grunt-contrib-nodeunit": "~0.2.0",

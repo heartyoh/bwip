@@ -21,9 +21,19 @@ As a package for bower provides:
 ## Getting Started
 ### Install the nodejs module with: `npm install bwip`
 
-```js
+```javascript
 var bwip = require('bwip');
-bwip.awesome(); // "awesome"
+
+var bcid = 'code128';
+var scale = 4;
+var rotate = 'L';
+var text = '^FNC1011234567890';
+var options = {
+	alttext: '(01)01234567890',
+	parsefnc: true
+};
+
+var png = bwip.png(bcid, text, scale, rotate, options);
 ```
 
 ### Install the rails module with Gemfile
@@ -44,7 +54,22 @@ The bwip files will be added to the asset pipeline and available for you to use.
 ```
 
 ## Documentation
-_(Coming soon)_
+### for Node
+ function : bwip.png(bcid, text, scale, rotate, options);
+
+ 'bcid' is the name of the bwip-js barcode rendering function e.g.
+
+ 'text' is the text to be bar coded.
+
+ 'scale' is an integer value from 1 .. 10.  Default is 2.
+
+ 'rotate' takes the values: 
+		N	normal, unrotated (the default)
+		R	clockwise, 90 rotation
+		L	counter-clockwise, 90 rotation
+		I	inverted, 180 rotation
+
+ 'options' is the object what can take any of the bar code options defined in the BWIPP documentation.
 
 ## Examples
 _(Coming soon)_

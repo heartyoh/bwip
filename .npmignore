@@ -1,0 +1,10 @@
+/.gitignore
+/.jshintrc
+/.travis.yml
+/bwip.gemspec
+/Gemfile
+/Rakefile
+/lib/
+/build/
+/node_modules/
+/test/
