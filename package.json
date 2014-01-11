@@ -1,8 +1,8 @@
 {
   "name": "bwip",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "main": "src/bwip-node.js",
-  "description": "The best module ever.",
+  "description": "BWIP for node-js",
   "homepage": "https://github.com/heartyoh/bwip",
   "bugs": "https://github.com/heartyoh/bwip/issues",
   "author": {
