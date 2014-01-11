@@ -132,7 +132,8 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            src: ['build/*'],
+            cwd: 'build',
+            src: ['**'],
             dest: 'vendor/assets/javascripts/',
             filter: 'isFile'
           }
