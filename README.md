@@ -19,7 +19,8 @@ As a package for bower provides:
   * bwip 0.6
 
 ## Getting Started
-### Install the nodejs module with: `npm install bwip`
+### Install the nodejs module with:
+`npm install bwip`
 
 ```javascript
 var bwip = require('bwip');
