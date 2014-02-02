@@ -1,14 +1,24 @@
 {
   "name": "bwip",
-  "version": "0.6.0",
+  "main": "index.js",
+  "version": "0.6.3",
   "authors": [
     "heartyoh <heartyoh@gmail.com>"
   ],
   "license": "MIT",
   "ignore": [
     "**/.*",
+    "*.gemspec",
+    "*.gem",
+    "Gemfile",
+    "Gruntfile.js",
+    "package.json",
+    "Rakefile",
     "node_modules",
     "bower_components",
+    "vendor",
+    "lib",
+    "dist",
     "test",
     "tests"
   ]
