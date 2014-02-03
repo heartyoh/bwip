@@ -1,6 +1,6 @@
 {
   "name": "bwip",
-  "main": "index.js",
+  "main": "dist/bwip-min.js",
   "version": "0.6.3",
   "authors": [
     "heartyoh <heartyoh@gmail.com>"
