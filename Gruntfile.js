@@ -171,6 +171,14 @@ module.exports = function (grunt) {
         files: '<%= jshint.test.src %>',
         tasks: ['jshint:test', 'nodeunit']
       }
+    },
+    mocha: {
+      test: {
+        src: ['test/**/*.html'],
+        options: {
+          run: true,
+        }
+      }
     }
   });
 
