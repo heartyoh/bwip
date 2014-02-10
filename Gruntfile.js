@@ -135,8 +135,8 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: 'dist',
-            src: ['**'],
+            cwd: '.',
+            src: ['bwip.js', 'bwip-min.js'],
             dest: 'vendor/assets/javascripts/',
             filter: 'isFile'
           }
