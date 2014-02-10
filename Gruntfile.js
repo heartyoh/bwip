@@ -119,15 +119,15 @@ module.exports = function (grunt) {
         banner: '<%= banner %>',
         stripBanners: true
       }, 
-      dist: {
+      build: {
         src: sourceFiles,
-        dest: 'dist/bwip.js'
+        dest: 'bwip.js'
       }
     },
     uglify: {
-      dist: {
-        src: 'dist/bwip.js',
-        dest: 'dist/bwip-min.js'
+      build: {
+        src: 'bwip.js',
+        dest: 'bwip-min.js'
       }
     },
     copy: {
@@ -174,10 +174,10 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('dist', ['concat:dist', 'uglify:dist', 'copy:rails'])
+  grunt.registerTask('build', ['concat:build', 'uglify:build', 'copy:rails'])
 
   // Default task.
   // grunt.registerTask('default', ['jshint', 'nodeunit']);
-  grunt.registerTask('default', ['dist']);
+  grunt.registerTask('default', ['build']);
 
 };
