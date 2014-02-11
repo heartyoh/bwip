@@ -5,6 +5,8 @@
 // See the COPYRIGHT file in the bwip.js root directory
 // for the extended copyright notice.
 
+BWIPJS.load = function(path) {};
+
 (function(name, definition) {
     if(typeof module != 'undefined')
     	module.exports = definition();
@@ -119,8 +121,6 @@
 			return cvs.toDataURL();
 		}
 	}
-
-	BWIPJS.load = function(path) {};
 
 	BWIPJS.print = function(s) {
 		console.log(s);
