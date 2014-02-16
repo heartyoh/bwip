@@ -37,6 +37,46 @@ var options = {
 var png = bwip.png(bcid, text, scale, rotate, options);
 ```
 
+### Sample Barcode Image Server using nodejs
+```
+var url = require('url');
+var http = require('http');
+var bwip = require('bwip');
+
+function error(res, status, message) {
+	res.writeHead(status, { 'Content-Type':'text/plain' });
+	res.end(message, 'ascii');
+}
+
+http.createServer(function(req, res) {
+
+	var args = url.parse(req.url, true).query;
+
+	// Set the defaults
+	var scale  = parseInt(args.scale, 10) || 2;
+	var rotate = args.rotate || 'N';
+	var bcid   = args.bcid;
+	var text   = args.text;
+
+	if (!text)
+		return error(res, 400, 'Bar code text not specified.\r\n');
+	if (!bcid)
+		return error(res, 400, 'Bar code type not specified.\r\n');
+
+	// Remove the non-BWIPP options
+	delete args.scale;
+	delete args.rotate;
+	delete args.text;
+	delete args.bcid;
+
+	// Return a PNG-encoded image
+	var png = bwip.png(bcid, text, scale, rotate, args);
+
+	res.writeHead(200, { 'Content-Type':'image/png' });
+	res.end(png, 'binary');
+}).listen(3030);
+```
+
 ### Install the rails module with Gemfile
 
 ```ruby
