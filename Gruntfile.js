@@ -158,6 +158,31 @@ module.exports = function (grunt) {
         src: ['test/**/*.js']
       }
     },
+    bump: {
+      options: {
+        files: ['package.json', 'bower.json'],
+        updateConfigs: ['pkg'],
+        commit: true,
+        commitMessage: 'Release v%VERSION%',
+        commitFiles: ['-a'], //['package.json', 'bower.json'], // '-a' for all files
+        createTag: true,
+        tagName: 'v%VERSION%',
+        tagMessage: 'Version %VERSION%',
+        push: true,
+        pushTo: 'upstream',
+        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' // options to use with '$ git describe'
+      }
+    },
+    replace: {
+      'bump-gem': {
+        src: ['lib/bwip/version.rb'],
+        overwrite: true, // overwrite matched source files
+        replacements: [{
+          from: /VERSION = \"\S*\"/,
+          to: "VERSION = \"<%= pkg.version %>\""
+        }]
+      }
+    },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -182,6 +207,7 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.registerTask('bumpup', ['bump-only', 'replace:bump-gem'])
   grunt.registerTask('build', ['concat:build', 'uglify:build', 'copy:rails'])
 
   // Default task.
