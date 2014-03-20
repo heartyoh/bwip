@@ -127,7 +127,7 @@ BWIPJS.load = function(path) {};
 	};
 
 	BWIPJS.debug = function(s) {
-		console.log(s);
+		// console.log(s);
 	};
 
 	BWIPJS.imageUrl = function(model) {
