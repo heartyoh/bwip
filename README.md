@@ -20,7 +20,7 @@ As a package for bower provides:
 
 ## Online Service
 
-We are here to serve : hatio, lab.
+We are here to serve : Hatio, Lab.
 
 You just try to show simple barcode image by request.
 
@@ -147,4 +147,4 @@ Feel free to open an issue ticket if you find something that could be improved. 
 ```
 
 ## License
-Copyright (c) 2014 Hearty, Oh. Licensed under the MIT license.
+Copyright (c) 2014 Hatio, Lab. Licensed under the MIT license.
