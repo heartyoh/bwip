@@ -18,6 +18,14 @@ As a package for bower provides:
 
   * bwip 0.7
 
+## Online Service
+We are serving on following site
+http://barcode.hatiolab.com:81
+
+You just try to show simple barcode image by request.
+
+http://barcode.hatiolab.com:81/?bcid=code128&text=^FNC1011234567890&wscale=4&hscale=4&rotate=L&parsefnc&alttext=(01)01234567890
+
 ## Getting Started
 ### Install the nodejs module with:
 `npm install bwip`
@@ -117,9 +125,6 @@ The bwip files will be added to the asset pipeline and available for you to use.
 
  'options' is the object what can take any of the bar code options defined in the BWIPP documentation.
 
-## Examples
-_(Coming soon)_
-
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
@@ -128,7 +133,18 @@ Feel free to open an issue ticket if you find something that could be improved. 
 * If the bwip-js scripts are outdated (i.e. maybe a new version of bwip-js was released yesterday), feel free to open an issue and prod us to get that thing updated. However, for security reasons, we won't be accepting pull requests with updated bwip-js scripts.
 
 ## Release History
-_(Nothing yet)_
+
+### 0.7
+- Support width scale and height scale separately (API modified)
+```
+	[before 0.7] 
+    bwip.png(bcid, text, scale, rotate, options)
+    bwip.base64(bcid, text, scale, rotate, options)
+    
+    [after 0.7] 
+    bwip.png(bcid, text, wscale, hscale, rotate, options)
+    bwip.base64(bcid, text, wscale, hscale, rotate, options)
+```
 
 ## License
 Copyright (c) 2014 Hearty, Oh. Licensed under the MIT license.
