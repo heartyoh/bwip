@@ -1,5 +1,5 @@
 # bwip
- [![Build Status](https://secure.travis-ci.org/heartyoh/bwip.png?branch=master)](http://travis-ci.org/heartyoh/bwip)
+[![Build Status](https://secure.travis-ci.org/heartyoh/bwip.png?branch=master)](http://travis-ci.org/heartyoh/bwip)
 
 This project rocks and uses MIT-LICENSE.
 
@@ -8,15 +8,15 @@ It supports packages for nodejs, bower & rails.
 
 As a gem for rails provides:
 
-  * bwip 0.6
+  * bwip 0.7
 
 As a package for nodejs provides:
 
-  * bwip 0.6
+  * bwip 0.7
 
 As a package for bower provides:
 
-  * bwip 0.6
+  * bwip 0.7
 
 ## Getting Started
 ### Install the nodejs module with:
@@ -26,7 +26,8 @@ As a package for bower provides:
 var bwip = require('bwip');
 
 var bcid = 'code128';
-var scale = 4;
+var wscale = 4;
+var hscale = 4;
 var rotate = 'L';
 var text = '^FNC1011234567890';
 var options = {
@@ -34,7 +35,7 @@ var options = {
 	parsefnc: true
 };
 
-var png = bwip.png(bcid, text, scale, rotate, options);
+var png = bwip.png(bcid, text, wscale, hscale, rotate, options);
 ```
 
 ### Sample Barcode Image Server using nodejs
@@ -53,7 +54,8 @@ http.createServer(function(req, res) {
 	var args = url.parse(req.url, true).query;
 
 	// Set the defaults
-	var scale  = parseInt(args.scale, 10) || 2;
+    var wscale  = parseInt(args.wscale, 10) || 2;
+    var hscale  = parseInt(args.hscale, 10) || 2;
 	var rotate = args.rotate || 'N';
 	var bcid   = args.bcid;
 	var text   = args.text;
@@ -64,13 +66,14 @@ http.createServer(function(req, res) {
 		return error(res, 400, 'Bar code type not specified.\r\n');
 
 	// Remove the non-BWIPP options
-	delete args.scale;
+    delete args.wscale;
+    delete args.hscale;
 	delete args.rotate;
 	delete args.text;
 	delete args.bcid;
 
 	// Return a PNG-encoded image
-	var png = bwip.png(bcid, text, scale, rotate, args);
+	var png = bwip.png(bcid, text, wscale, hscale, rotate, args);
 
 	res.writeHead(200, { 'Content-Type':'image/png' });
 	res.end(png, 'binary');
@@ -96,13 +99,15 @@ The bwip files will be added to the asset pipeline and available for you to use.
 
 ## Documentation
 ### for Node
- function : bwip.png(bcid, text, scale, rotate, options);
+ function : bwip.png(bcid, text, wscale, hscale, rotate, options);
 
  'bcid' is the name of the bwip-js barcode rendering function e.g.
 
  'text' is the text to be bar coded.
 
- 'scale' is an integer value from 1 .. 10.  Default is 2.
+ 'wscale' is an integer value from 1 .. 10.  Default is 2.
+
+ 'hscale' is an integer value from 1 .. 10.  Default is 2.
 
  'rotate' takes the values: 
 		N	normal, unrotated (the default)

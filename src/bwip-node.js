@@ -2,7 +2,7 @@
  * bwip
  * https://github.com/heartyoh/bwip
  *
- *		
+ *
  * Copyright (c) 2014 Hearty, Oh.
  * Licensed under the MIT license.
  */
@@ -27,7 +27,7 @@ load('bwip.js');
 // Set the hook for demand-loading the remaining bwip-js files
 BWIPJS.load = load;
 
-exports.png = function(bcid, text, scale, rotate, options) {
+exports.png = function(bcid, text, wscale, hscale, rotate, options) {
 
 	if (!text)
 		throw 'Bar code text not specified.';
@@ -55,7 +55,7 @@ exports.png = function(bcid, text, scale, rotate, options) {
 
 	// Render the bar code
 	bw.bitmap(new Bitmap);
-	bw.scale(scale, scale);
+	bw.scale(wscale, hscale);
 	bw.push(text);
 	bw.push(opts);
 	bw.call(bcid);
@@ -63,9 +63,9 @@ exports.png = function(bcid, text, scale, rotate, options) {
 	return bw.bitmap().getPNG(rotate);
 };
 
-exports.base64 = function(bcid, text, scale, rotate, options) {
-	var s = this.png(bcid, text, scale, rotate, options);
-	
+exports.base64 = function(bcid, text, wscale, hscale, rotate, options) {
+	var s = this.png(bcid, text, wscale, hscale, rotate, options);
+
 	var ch = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
     var c1, c2, c3, e1, e2, e3, e4;
     var l = s.length;
@@ -82,7 +82,7 @@ exports.base64 = function(bcid, text, scale, rotate, options) {
         if (l < i+3) { e4 = 64; } else { e4 = c3 & 0x3f; }
         r+= ch.charAt(e1) + ch.charAt(e2) + ch.charAt(e3) + ch.charAt(e4);
     } while ((i+= 3) < l);
-    
+
     return 'data:image/png;base64,' + r;
 };
 
