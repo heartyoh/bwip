@@ -19,8 +19,8 @@ As a package for bower provides:
   * bwip 0.7
 
 ## Online Service
-We are serving on following site
-http://barcode.hatiolab.com:81
+
+We are here to serve : hatio, lab.
 
 You just try to show simple barcode image by request.
 
