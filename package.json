@@ -1,6 +1,6 @@
 {
   "name": "bwip",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "main": "src/bwip-node.js",
   "description": "BWIP for node-js",
   "homepage": "https://github.com/heartyoh/bwip",
@@ -19,6 +19,8 @@
     }
   ],
   "dependencies": {
+    "image-min": "^0.4.5",
+    "imagemin": "^0.4.6",
     "pnglib": "~0.0.1"
   },
   "devDependencies": {

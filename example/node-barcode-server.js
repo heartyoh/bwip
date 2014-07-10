@@ -52,11 +52,17 @@
 var url = require('url');
 var http = require('http');
 var bwip = require('../src/bwip-node');
+var Imagemin = require('imagemin');
+var path = require('path');
 
 function error(res, status, message) {
 	res.writeHead(status, { 'Content-Type':'text/plain' });
 	res.end(message, 'ascii');
 }
+
+// use lossless image compress plugins
+var imagemin = new Imagemin()
+    .use(Imagemin.pngquant());
 
 http.createServer(function(req, res) {
 
@@ -82,8 +88,18 @@ http.createServer(function(req, res) {
 	delete args.bcid;
 
 	// Return a PNG-encoded image
-	var png = bwip.png(bcid, text, wscale, hscale, rotate, args);
+    var png = bwip.png(bcid, text, wscale, hscale, rotate, args);
 
-	res.writeHead(200, { 'Content-Type':'image/png' });
-	res.end(png, 'binary');
+    // Image Compress
+    imagemin
+    .src(new Buffer(png, 'binary'))
+    .optimize(function (err, file) {
+        if(err) {
+            return error(res, 500, 'Image compression failed.\r\n' + err.stack || err.stacktrace);
+        } else {
+            res.writeHead(200, { 'Content-Type':'image/png' });
+            res.end(file.contents, 'binary');
+        }
+    });
+
 }).listen(3030);
