@@ -1,10 +1,10 @@
 # BWIP Server
 #
-# VERSION	0.1.6
+# VERSION	0.7.1
 #
 
 # Dockerfile for BWIP Barcode Image Server
-# =========================
+# ========================================
 #
 # Use with Docker http://www.docker.io
 #

@@ -8,15 +8,15 @@ It supports packages for nodejs, bower & rails.
 
 As a gem for rails provides:
 
-  * bwip 0.7
+  * bwip 0.7.1
 
 As a package for nodejs provides:
 
-  * bwip 0.7
+  * bwip 0.7.1
 
 As a package for bower provides:
 
-  * bwip 0.7
+  * bwip 0.7.1
 
 ## Online Service
 
