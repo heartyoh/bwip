@@ -137,7 +137,7 @@ Feel free to open an issue ticket if you find something that could be improved. 
 ### 0.7.1
 - Support compressed barcode image
 
-### 0.7
+### 0.7.0
 - Support width scale and height scale separately (API modified)
 ```
 	[before 0.7] 

@@ -10,7 +10,7 @@
 #
 # To build an image with docker is pretty simple:
 #
-#     $ docker build -t bwipserver github.com/heartyoh/bwip-docker
+#     $ docker build -t bwipserver github.com/heartyoh/bwip
 #
 # Then to run that image and attach to it at the same time:
 #
