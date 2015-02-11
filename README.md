@@ -3,6 +3,8 @@
 
 This project rocks and uses MIT-LICENSE.
 
+This project is referencing the bwip-js project (https://code.google.com/p/bwip-js/) version 0.5.
+
 This project is for modular of BWIP library.
 It supports packages for nodejs, bower & rails.
 
