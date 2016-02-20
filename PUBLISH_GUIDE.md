@@ -11,3 +11,7 @@
 2. $grunt build
 3. check bwip.js, bwip-min.js
 4. npm publish
+
+# bower packge publish
+
+1. bower register bwip git@github.com:heartyoh/bwip
